@@ -44,16 +44,16 @@ Web app chat AI berbahasa Indonesia yang **wajib menyertakan dalil** — dan dal
 
 ```mermaid
 flowchart TB
- subgraph B[" Browser (semua terjadi di sini)"]
- UI["React UI<br/>chat · DalilCard · settings"]
- RAG[("RAG offline<br/>BM25 + stemmer ID<br/>IndexedDB cache")]
- V["Verifier<br/>kutipan vs indeks"]
- H[("localStorage<br/>riwayat + key user")]
- end
- UI --> RAG
- UI --> V
- UI --> H
- UI -->|"fetch stream:true"| P["Provider LLM pilihan<br/>Groq · Cerebras · OpenRouter · Mistral<br/>SambaNova · Gemini · DeepSeek · Anthropic"]
+    subgraph B[" Browser (semua terjadi di sini)"]
+        UI["React UI<br/>chat · DalilCard · settings"]
+        RAG[("RAG offline<br/>BM25 + stemmer ID<br/>IndexedDB cache")]
+        V["Verifier<br/>kutipan vs indeks"]
+        H[("localStorage<br/>riwayat + key user")]
+    end
+    UI --> RAG
+    UI --> V
+    UI --> H
+    UI -->|"fetch stream:true"| P["Provider LLM pilihan<br/>Groq · Cerebras · OpenRouter · Mistral<br/>SambaNova · Gemini · DeepSeek · Anthropic"]
 ```
 
 - **Stack:** Vite + React + TypeScript · zustand · react-markdown · CSP produksi ketat (vercel.json)
